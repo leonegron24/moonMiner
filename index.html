@@ -23,7 +23,7 @@
         <section class="row">
             <div class="col-12">
                 <div class="text-center">
-                    <img onclick="" role="button" class="image-fluid" src="https://jeremy-fowler.github.io/moon_miner/assets/img/Moon.svg" alt="">
+                    <img onclick= "mine()" role="button" class="image-fluid" src="https://jeremy-fowler.github.io/moon_miner/assets/img/Moon.svg" alt="">
                 </div>
             </div>
         </section>
@@ -34,16 +34,16 @@
           <section class="row">
             <div class="col-12">
               <div id="stats" class="d-flex justify-content-center align-items-end bungee">
-                <div id="clickPower">
+                <div>
                   <p class="mb-0 d-flex justify-content-between fs-5">
-                    <span>+1</span>
+                    <span id="cheesePerClick">+1</span>
                     <i class="mdi mdi-cursor-pointer"></i>
                   </p>
                 </div>
-                <div id="cheese">
+                <div>
                   <h2 class="mb-0 fs-1 d-flex justify-content-between">
                     <i class="mdi mdi-cheese"></i>
-                    <span>0</span>
+                    <span id="cheese">0</span>
                   </h2>
                 </div>
                 <div id="autoPower">
@@ -65,8 +65,12 @@
                       <div class="d-block d-md-flex justify-content-between shop-box">
                         <div>
                           <h3 class="fs-5">Click Upgrades</h3>
-                          <button>Knife <i class="mdi mdi-knife"></i></button>
-                          <button class="mt-3">Giant Shovel <i class="mdi mdi-shovel"></i></button>
+                          <button onclick="clickUpgrade('knife')">Knife <i class="mdi mdi-knife"> = <span id="knifeUpgrade">50</span>
+                            <span><i class="mdi mdi-cheese"></i></span></i>
+                          </button>
+                          <button onclick="clickUpgrade('shovel')" class="mt-3">Giant Shovel <i class="mdi mdi-shovel"> = <span id="shovelUpgrade"> 150 <i class="mdi mdi-cheese"></i></span>
+                          </i>
+                        </button>
                         </div>
                         <div>
                           <h3 class="fs-5">Automatic Upgrades</h3>
@@ -80,10 +84,10 @@
                         <div>
                           <h3 class="fs-5">Click Stats</h3>
                           <div title="cheese-per-click" class="justify-content-between"> Level
-                            <span>1</span> <i class="mdi mdi-knife"></i> 
+                            <span id="levelKnife">1</span> <i class="mdi mdi-knife"></i> 
                           </div>
                           <div title="cheese-per-click" class="justify-content-between"> Level
-                            <span>1</span> <i class="mdi mdi-shovel"></i>
+                            <span id="levelShovel">1</span> <i class="mdi mdi-shovel"></i>
                           </div>
                         </div>
                         <div>
@@ -112,10 +116,8 @@
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
         integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
     
-      <script src="app/App.js" type="module"></script>
+      <script src="app.js"></script>
     </body>
 
-
-<script src="app.js"></script>
 </body>
 </html>
