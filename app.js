@@ -1,3 +1,4 @@
+// SECTION Variables
 // Let Variables
     // cheese
 let cheese = 0
@@ -17,15 +18,18 @@ let autoCheeseAmount = 0
 let autoCheeseIncrease = 5
 
 // Const Variables
+    // cheese
 const elmCheese = document.getElementById('cheeseNumber')
+const elmCheesePerClick = document.getElementById('cheesePerClick')
+const elmAutoCheeseAmount = document.getElementById('autoCheese')
+    // levels
 const elmLevelKnife = document.getElementById('levelKnife')
 const elmLevelShovel = document.getElementById('levelShovel')
 const elmLevelElonified = document.getElementById('levelElonified')
 const elmLevelAlien = document.getElementById('levelAlien')
-const elmCheesePerClick = document.getElementById('cheesePerClick')
+    // prices
 const elmPriceForKnifeUpgrade = document.getElementById('knifeUpgrade')
 const elmPriceForGiantShovelUpgrade = document.getElementById('shovelUpgrade')
-const elmAutoCheeseAmount = document.getElementById('autoCheese')
 const elmpriceForElonifiedUpgrade = document.getElementById('elonified')
 const elmpriceForAlienUpgrades = document.getElementById('alien')
 
@@ -60,13 +64,16 @@ let clickUpgrades = [
       }
   ];
 
-//   Functions
+// SECTION Functions
+  
+// SECTION Mine
 function mine(){
     cheese+=cheesePerClick
     console.log(cheese)
     update()
 }
 
+// SECTION Update
 function update(){
     //update cheesePerClicks
     if (!elmCheesePerClick){
@@ -104,6 +111,7 @@ function update(){
 
     }
 
+// SECTION Click Upgrades
 function clickUpgrade(weapon){
     if (weapon === 'knife'){
         console.log('clicked shovel')
@@ -140,6 +148,8 @@ function clickUpgrade(weapon){
         }
         console.log("Cheese Per Click! = " + " " + cheesePerClick)
     }
+
+// SECTION AutoCheese
 function autoCheese(){
     if (!elmAutoCheeseAmount){
         return
@@ -153,6 +163,7 @@ function autoCheese(){
 
 }
 
+// SECTION Auto Upgrades
 function autoUpgrades(upgradeChoice){
     if (upgradeChoice === 'Elonified'){
         console.log('clicked Elon')
