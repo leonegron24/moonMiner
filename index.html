@@ -22,7 +22,7 @@
     <main class="container-fluid">
         <section class="row">
             <div class="col-12">
-                <div class="text-center">
+                <div class="text-center" title="CLICK ME FOR CHEEEEESE!">
                     <img onclick= "mine()" role="button" class="image-fluid" src="https://jeremy-fowler.github.io/moon_miner/assets/img/Moon.svg" alt="">
                 </div>
             </div>
@@ -34,22 +34,22 @@
           <section class="row">
             <div class="col-12">
               <div id="stats" class="d-flex justify-content-center align-items-end bungee">
-                <div>
+                <div id="clickPower" title="Cheese Per Click!">
                   <p class="mb-0 d-flex justify-content-between fs-5">
                     <span id="cheesePerClick">+1</span>
                     <i class="mdi mdi-cursor-pointer"></i>
                   </p>
                 </div>
-                <div>
-                  <h2 class="mb-0 fs-1 d-flex justify-content-between">
+                <div id="cheese" title="Cheese Mined!">
+                  <h2 class="mb-0 fs-1 d-flex justify-content-center">
                     <i class="mdi mdi-cheese"></i>
-                    <span id="cheese">0</span>
+                    <span id="cheeseNumber">0</span>
                   </h2>
                 </div>
-                <div id="autoPower">
+                <div id="autoPower" title="Cheese Per 3 Seconds">
                   <p class="mb-0 d-flex justify-content-between fs-5">
                     <i class="mdi mdi-timer-outline"></i>
-                    <span>+0</span>
+                    <span id="autoCheese">+5</span>
                   </p>
                 </div>
               </div>
@@ -74,8 +74,12 @@
                         </div>
                         <div>
                           <h3 class="fs-5">Automatic Upgrades</h3>
-                          <button>Elonified 👨‍🔬</button> 
-                          <button>Alien Aid 👽</button>
+                          <button onclick="autoUpgrades('Elonified')" >Elonified 👨‍🔬 = <span id="elonified">500</span>
+                          <span><i class="mdi mdi-cheese"></i></span></i>
+                        </button> 
+                          <button onclick="autoUpgrades('Alien')">Alien Aid 👽 = <span id="alien">2000</span>
+                            <span><i class="mdi mdi-cheese"></i></span></i>
+                          </button> 
                         </div>
                       </div>
                     </div>
@@ -83,20 +87,20 @@
                       <div class="d-block d-md-flex justify-content-between shop-box h-100">
                         <div>
                           <h3 class="fs-5">Click Stats</h3>
-                          <div title="cheese-per-click" class="justify-content-between"> Level
+                          <div title="Knife Upgrade Level!" class="justify-content-between"> Level
                             <span id="levelKnife">1</span> <i class="mdi mdi-knife"></i> 
                           </div>
-                          <div title="cheese-per-click" class="justify-content-between"> Level
+                          <div title="Giant Shovel Upgrade Level!" class="justify-content-between"> Level
                             <span id="levelShovel">1</span> <i class="mdi mdi-shovel"></i>
                           </div>
                         </div>
                         <div>
                             <h3 class="fs-5">Automatic Stats</h3>
-                            <div title="cheese-per-click" class="justify-content-between"> Level
-                              <span>1</span> 👨‍🔬
+                            <div title="Elonified Upgrade Level" class="justify-content-between"> Level
+                              <span id="levelElonified">1</span> 👨‍🔬
                             </div>
-                            <div title="cheese-per-click" class="justify-content-between"> Level
-                              <span>1</span> 👽
+                            <div title="Alien Upgrade Level!" class="justify-content-between"> Level
+                              <span id="levelAlien">1</span> 👽
                             </div>
                           </div>
                         </div>

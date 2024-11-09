@@ -69,7 +69,7 @@ body{
     border-top-right-radius: 15px;
   }
   
-  #cheese {
+  #cheese{
     background-color: var(--colby-jack);
     border-radius: 15px 15px 0 0;
     min-width: 18%;
