@@ -115,7 +115,7 @@ function update(){
 function clickUpgrade(weapon){
     if (weapon === 'knife'){
         console.log('clicked shovel')
-        if (cheese >= 50){
+        if (cheese >= priceForKnifeUpgrade){
         cheesePerClick += 20
         cheese -= priceForKnifeUpgrade
         priceForKnifeUpgrade += 200
@@ -132,7 +132,7 @@ function clickUpgrade(weapon){
 
     if (weapon === 'shovel'){
         console.log('clicked shovel')
-        if (cheese >= 150){
+        if (cheese >= priceForGiantShovelUpgrade){
             cheesePerClick += 40
             cheese -= priceForGiantShovelUpgrade
             priceForGiantShovelUpgrade += 400
@@ -167,7 +167,7 @@ function autoCheese(){
 function autoUpgrades(upgradeChoice){
     if (upgradeChoice === 'Elonified'){
         console.log('clicked Elon')
-        if (cheese >= 500){
+        if (cheese >= priceForElonifiedUpgrade){
             autoCheeseIncrease += 10
             cheese -= priceForElonifiedUpgrade
             priceForElonifiedUpgrade *= 2
@@ -183,7 +183,7 @@ function autoUpgrades(upgradeChoice){
         }
     if (upgradeChoice === 'Alien' ){
         console.log('clicked Alien')
-        if (cheese >= 2000){
+        if (cheese >= priceForAlienUpgrade){
             autoCheeseIncrease += 20
             cheese -= priceForAlienUpgrade
             priceForAlienUpgrade *= 2
