@@ -2,20 +2,20 @@
 // Let Variables
     // cheese
 let cheese = 0
-let cheesePerClick = 5
-    // levels
-let knifeLevel = 1
-let shovelLevel = 1
-let elonifiedLevel = 1
-let alienLevel = 1
-    // prices
-let priceForKnifeUpgrade = 50
-let priceForGiantShovelUpgrade = 150
-let priceForElonifiedUpgrade = 500
-let priceForAlienUpgrade = 2000
+// let cheesePerClick = 5
+//     // levels
+// let knifeLevel = 1
+// let shovelLevel = 1
+// let elonifiedLevel = 1
+// let alienLevel = 1
+//     // prices
+// let priceForKnifeUpgrade = 50
+// let priceForGiantShovelUpgrade = 150
+// let priceForElonifiedUpgrade = 500
+// let priceForAlienUpgrade = 2000
     // autoCheese
-let autoCheeseAmount = 0
-let autoCheeseIncrease = 5
+// let autoCheeseAmount = 0
+// let autoCheeseIncrease = 5
 
 // Const Variables
     // cheese
@@ -65,10 +65,26 @@ let clickUpgrades = [
   ];
 
 // SECTION Functions
-  
+
+function getCheesePerClick(){
+    let total = 1
+    clickUpgrades.forEach(upgradeOption => {
+        total += upgradeOption.quantity * upgradeOption.bonus
+    })
+    return total
+}
+
+function getAutoCheese(){
+    let total = 0
+    automaticUpgrades.forEach(autoUpgradeOption => {
+        total += autoUpgradeOption.quantity * autoUpgradeOption.bonus
+    })
+    return total
+}
+
 // SECTION Mine
 function mine(){
-    cheese+=cheesePerClick
+    cheese += getCheesePerClick()
     console.log(cheese)
     update()
 }
@@ -79,87 +95,69 @@ function update(){
     if (!elmCheesePerClick){
         return
     }
-    elmCheesePerClick.innerHTML = cheesePerClick
+    elmCheesePerClick.innerHTML = getCheesePerClick().toString()
 
     // update cheese
     if (!elmCheese){
         return
     }
-   elmCheese.innerHTML = cheese;  
+   elmCheese.innerHTML = cheese.toString();  
 
     // update knifeLevel
    if (!elmLevelKnife){
     return  
     }
-    elmLevelKnife.innerHTML = knifeLevel
+    elmLevelKnife.innerHTML = (clickUpgrades[0].quantity).toString()
 
     //  update shovelLevel
     if (!elmLevelShovel){
         return  
         }
-    elmLevelShovel.innerHTML = shovelLevel
+    elmLevelShovel.innerHTML = clickUpgrades[1].quantity.toString()
 
     if (!elmLevelAlien){
         return
     }
-    elmLevelAlien.innerHTML = alienLevel
+    elmLevelAlien.innerHTML = automaticUpgrades[1].quantity.toString()
 
     if (!elmLevelElonified){
         return
     }
-    elmLevelElonified.innerHTML = elonifiedLevel
+    elmLevelElonified.innerHTML = automaticUpgrades[0].quantity.toString()
 
     }
 
 // SECTION Click Upgrades
-function clickUpgrade(weapon){
-    if (weapon === 'knife'){
-        console.log('clicked shovel')
-        if (cheese >= priceForKnifeUpgrade){
-        cheesePerClick += 20
-        cheese -= priceForKnifeUpgrade
-        priceForKnifeUpgrade += 200
-        if (!elmPriceForKnifeUpgrade){
-            return
-        }
-        elmPriceForKnifeUpgrade.innerHTML = priceForKnifeUpgrade
-        knifeLevel += 1
-        update()
-        }else{
-            window.alert('Not enough cheese!')
-        }
-    }   
 
-    if (weapon === 'shovel'){
-        console.log('clicked shovel')
-        if (cheese >= priceForGiantShovelUpgrade){
-            cheesePerClick += 40
-            cheese -= priceForGiantShovelUpgrade
-            priceForGiantShovelUpgrade += 400
-            if (!elmPriceForGiantShovelUpgrade){
-                return
-            }
-            elmPriceForGiantShovelUpgrade.innerHTML = priceForGiantShovelUpgrade
-            shovelLevel += 1
-            update()
-            }else{
-                window.alert('Not enough cheese!')
-            }
-        }
-        console.log("Cheese Per Click! = " + " " + cheesePerClick)
+function clickUpgrade(upgradeName){
+    let selectedUpgrade = clickUpgrades.find(upgrade => upgrade.name == upgradeName)
+    if (!selectedUpgrade){
+        return
     }
+    if (cheese < selectedUpgrade?.price){
+        window.alert('Not enough cheese!')
+        return
+    }
+    cheese -= selectedUpgrade?.price
+    selectedUpgrade.price *= 1.2
+    selectedUpgrade.quantity += 1
+    update()
+
+
+}
 
 // SECTION AutoCheese
 function autoCheese(){
     if (!elmAutoCheeseAmount){
         return
     }
-    elmAutoCheeseAmount.innerHTML = '+' + autoCheeseIncrease
-    cheese += autoCheeseIncrease
+    let total = getAutoCheese()
+    elmAutoCheeseAmount.innerHTML = '+' + total
+    cheese += total
     if (!elmCheese){
         return
     }
-   elmCheese.innerHTML = cheese;  
+   elmCheese.innerHTML = cheese.toString();  
 
 }
 
